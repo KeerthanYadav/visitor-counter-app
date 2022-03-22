@@ -25,7 +25,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: root
           password: ${{ secrets.PASSWORD }}
-          source: "k8s-deployment/deploy-app.yml,k8s-deployment/deploy-redis.yml"
+          source: "k8s-deployment/deploy-app.yml,k8s-deployment/deploy-redis.yml,k8s-deployment/service.yml"
           target: "~/deployments"
   
       - name: Run SSH command
@@ -34,6 +34,7 @@ jobs:
           command: |
             kubectl apply -f ~/deployments/k8s-deployment/deploy-redis.yml
             kubectl apply -f ~/deployments/k8s-deployment/deploy-app.yml
+            kubectl apply -f ~/deployments/k8s-deployment/service.yml
           host: ${{ secrets.HOST }}
           username: root
           password: ${{ secrets.PASSWORD}}
