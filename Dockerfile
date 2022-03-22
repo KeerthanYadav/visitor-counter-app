@@ -9,4 +9,7 @@ COPY . .
 
 EXPOSE 8080
 
-CMD [ "REDIS_HOST=159.65.158.119", "REDIS_PORT=6379", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080" ]
+ENV REDIS_HOST 159.65.158.119
+ENV REDIS_PORT 6379
+
+CMD [ "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080" ]
