@@ -32,10 +32,10 @@ jobs:
         uses: garygrossgarten/github-action-ssh@release
         with:
           command: |
-            kubectl create -f ~/deployments/deploy-redis.yml
-            kubectl create -f ~/deployments/deploy-app.yml
+            kubectl create -f ~/deployments/k8s-deployment/deploy-redis.yml
+            kubectl create -f ~/deployments/k8s-deployment/deploy-app.yml
           host: ${{ secrets.HOST }}
-          user: root
+          username: root
           password: ${{ secrets.PASSWORD}}
           
 
